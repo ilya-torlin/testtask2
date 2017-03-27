@@ -1,6 +1,6 @@
 % include('header.tpl', title='Page Title')
-%if usr == 'Admin':
-    <p>Add new user:</p>
+%if usr1 == 'Admin':
+    <p>Edit user:</p>
     <form action="/users/{{usr.name}}/edit" method="GET">
         <input type="text" size="30" maxlength="30" name="name" value="{{usr.name}}">
         <select name="role">
@@ -17,7 +17,7 @@
         <input type="submit" name="save" value="save">
     </form>
 %else:
-    %if usr != 'None':
+    %if usr1 != 'None':
         <p><a href='/login'>Log in as Admin</a></p>
     %else:
         <p><a href='/login'>Log in</a></p>

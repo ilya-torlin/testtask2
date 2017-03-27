@@ -121,8 +121,7 @@ def get_auth():
     return user    
 
 @route('/')
-User.create(name=unm,role=url,password=psswrd)
-            AuthData.create(user=unm,token=encoded)@route('/login')
+@route('/login')
 def do_login():
     if request.get_cookie("token") is None:
         output = template('login')
@@ -221,7 +220,7 @@ def user_id(name):
 @route('/users/<name>/edit', method='GET')
 def user_id(name):
     '''Edit current user info'''
-    usr1 = user_info(name)
+    usr2 = user_info(name)
     if request.GET.get('save','').strip():
         unm = request.GET.get('name','').strip()
         url = request.GET.get('role','').strip()

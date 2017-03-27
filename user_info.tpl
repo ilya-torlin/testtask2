@@ -7,6 +7,7 @@
         <p><a href='/login'>Log in as Admin</a></p>
     %else:
         <p><a href='/login'>Log in</a></p>
+    %end
 %end
 <p>User {{usr.name}} info:</p>
 <table border="1">
