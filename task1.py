@@ -41,6 +41,7 @@ class AuthData(BaseModel):
 
 try:
     User.create_table()
+    #User.create(name='Admin',role='Admin',password='admin')
 except OperationalError:
     print "User table already exists!"
  
@@ -56,6 +57,8 @@ except OperationalError:
 
 try:
     AuthData.create_table()
+    #encoded = jwt.encode({'Admin':'admin'},'secret',algorithm='HS256')
+    #AuthData.create(user='Admin',token=encoded)
 except OperationalError:
     print "Auth table already exists!" 
 
@@ -117,7 +120,8 @@ def get_auth():
     return user    
 
 @route('/')
-@route('/login')
+User.create(name=unm,role=url,password=psswrd)
+            AuthData.create(user=unm,token=encoded)@route('/login')
 def do_login():
     if request.get_cookie("token") is None:
         output = template('login')
