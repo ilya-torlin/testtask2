@@ -109,12 +109,13 @@ def get_giftlist_item(name,gid):
     return ls
 
 def get_auth():
+    '''Get Auth User Role'''
     try:
         user = 'None'
         tkn = request.get_cookie("token")
         ad = AuthData.get(AuthData.token==tkn)
         if not ad is None :
-            user = user_info(ad.user).name
+            user = user_info(ad.user).role
     except:
         user = 'None'
     return user    

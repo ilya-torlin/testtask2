@@ -1,5 +1,5 @@
 % include('header.tpl', title='Page Title')
-%if usr != 'None':
+%if usr == 'Admin':
     <p>Add new user:</p>
     <form action="/users/new" method="GET">
         <input type="text" size="30" maxlength="30" name="name">
@@ -12,5 +12,8 @@
         <input type="submit" name="save" value="save">
     </form>
 %else:
-    <p><a href='/login'>Log in</a></p>
+    %if usr != 'None':
+        <p><a href='/login'>Log in as Admin</a></p>
+    %else:
+        <p><a href='/login'>Log in</a></p>
 %end

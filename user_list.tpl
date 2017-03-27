@@ -13,8 +13,11 @@
   </tr>
 %end
 </table>
-%if usr != 'None':
+%if usr == 'Admin':
     <p>If you want to add new User: <a href='/users/new'>Add user</a></p>
 %else:
-    <p><a href='/login'>Log in</a></p>
+    %if usr != 'None':
+        <p><a href='/login'>Log in as Admin</a></p>
+    %else:
+        <p><a href='/login'>Log in</a></p>
 %end

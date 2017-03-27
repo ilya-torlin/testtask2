@@ -6,8 +6,9 @@
       <tr><td><a href='/gifts/{{ls.get('gid')}}'>{{ls.get('gtype')}}</a></td></tr>
     %end
 </table>
-%if usr != 'None':
+%if usr == 'Admin':
     <p>If you want to add new Gift: <a href='/gifts/new'>Add gift</a></p>
 %else:
-    <p><a href='/login'>Log in</a></p>
+    %if usr != 'None':
+        <p><a href='/login'>Log in</a></p>
 %end

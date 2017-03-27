@@ -1,9 +1,12 @@
 %#template to generate a HTML table from a list of tuples (or list of lists, or tuple of tuples or ...)
 % include('header.tpl', title='Page Title')
-%if usr1 != 'None':
+%if usr1 == 'Admin':
     <p>Edit current User info: <a href='/users/{{usr.name}}/edit'>Edit</a></p>
 %else:
-    <p><a href='/login'>Log in</a></p>
+    %if usr != 'None':
+        <p><a href='/login'>Log in as Admin</a></p>
+    %else:
+        <p><a href='/login'>Log in</a></p>
 %end
 <p>User {{usr.name}} info:</p>
 <table border="1">
